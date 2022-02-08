@@ -1,10 +1,9 @@
 import React from "react";
-import styled from "styled-components";
 
-function Button(color, property) {
-        
+function Button({aufschrift, nachname}) {
+
         return (
-          <button>{property}</button>
+          <button>{aufschrift} {nachname}</button>
         );
       }
 
