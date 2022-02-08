@@ -1,7 +1,12 @@
+import React from "react";
 import logo from './logo.svg';
 import './App.css';
 import Button from "./components/Button.js"
-import ActionButton from "./components/ActionButtion.js"
+import ActionButton from "./components/ActionButtion.js"    
+
+function App() {
+
+const [click, setClick] = React.useState(12);
 
 let i = "8"
 let z = "Baltres"
@@ -16,8 +21,6 @@ function sayHello() {
     alert("Tschüss Thomas und Gundula, habt einen schönen Abend!")
      }
 
-function App() {
-
   return (
     <div className="App">
       <header className="App-header">
@@ -31,6 +34,10 @@ function App() {
         <ActionButton currywurst={sayHello}></ActionButton>
         <ActionButton currywurst={sayCiao}></ActionButton>
 
+
+        <ActionButton currywurst={() => setClick(click + 5)}></ActionButton>
+        
+        Das hier ist der State-Wert: {click}
 
         <a
           className="App-link"
