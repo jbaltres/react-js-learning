@@ -1,52 +1,54 @@
-import React from "react";
 import logo from './logo.svg';
 import './App.css';
 import Button from "./components/Button.js"
-import ActionButton from "./components/ActionButtion.js"    
+import ActionButton from "./components/ActionButton.js"
+import InputField from "./components/InputField"
+import InputPassword from "./components/InputPassword"
+import Axios from "axios"
+import {useState} from "react";
 
 function App() {
 
-const [click, setClick] = React.useState(12);
+const [name,setName] = useState("");
 
-let i = "8"
-let z = "Baltres"
+const setNameOnChange = (e) =>  {
+  setName(e.target.value);
+}
 
-function sayHello() {
-    
- alert("Hello")
-  }
 
-  function sayCiao() {
-    
-    alert("Tschüss Thomas und Gundula, habt einen schönen Abend!")
-     }
+console.log(name)
 
+const addUser = () => {
+
+  Axios.post('http://localhost:3001/create', 
+  {
+    name: name
+  }).then(() => {console.log("success")});
+
+}
+
+const doLogin = () => {
+
+  Axios.post('http://localhost:3001/login', 
+  {
+    name: name
+  }).then(() => {console.log("success")});
+
+}
+  
+  
+
+
+  
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        <Button aufschrift="Thomas" nachname={i}></Button>
-        <Button aufschrift="Jürgen" nachname={z}></Button>
+      <img src={logo} className="App-logo" alt="logo" />
+        <InputField handleChange={setNameOnChange}></InputField>
+        <InputPassword></InputPassword>
+        <ActionButton aufschrift="Login"></ActionButton>
+        <ActionButton aufschrift="Registration" currywurst={addUser}></ActionButton>
 
-        <Button aufschrift="Gundula" nachname={z}></Button>
-
-        <ActionButton currywurst={sayHello}></ActionButton>
-        <ActionButton currywurst={sayCiao}></ActionButton>
-
-
-        <ActionButton currywurst={() => setClick(click + 5)}></ActionButton>
-        
-        Das hier ist der State-Wert: {click}
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
