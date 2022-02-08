@@ -29,8 +29,11 @@ function sayHello() {
         <Button aufschrift="Thomas" nachname={i}></Button>
         <Button aufschrift="Jürgen" nachname={z}></Button>
 
+        <Button aufschrift="Gundula" nachname={z}></Button>
+
         <ActionButton currywurst={sayHello}></ActionButton>
         <ActionButton currywurst={sayCiao}></ActionButton>
+
 
         <ActionButton currywurst={() => setClick(click + 5)}></ActionButton>
         
