@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import Button from "./components/Button.js"
 import ActionButton from "./components/ActionButton.js"
 import InputField from "./components/InputField"
 import InputPassword from "./components/InputPassword"
@@ -36,16 +35,12 @@ const doLogin = () => {
 
 }
   
-  
-
-
-  
   return (
     <div className="App">
       <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-        <InputField handleChange={setNameOnChange}></InputField>
-        <InputPassword></InputPassword>
+        <InputField handleChange={setNameOnChange} platzhalter={"Benutzername"}></InputField>
+        <InputPassword platzhalter={"Passwort"}></InputPassword>
         <ActionButton aufschrift="Login"></ActionButton>
         <ActionButton aufschrift="Registration" currywurst={addUser}></ActionButton>
 
