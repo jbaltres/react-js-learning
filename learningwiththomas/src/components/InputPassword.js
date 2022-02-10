@@ -1,9 +1,9 @@
 import React from "react";
 
-function InputPassword() {
+function InputPassword({handleChange}) {
 
         return (
-            <input className="Inputfield" type="password"></input>
+            <input className="Inputfield" type="password" onChange={handleChange}></input>
         );
       }
 
