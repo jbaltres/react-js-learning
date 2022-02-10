@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components"
 
+<<<<<<< HEAD
 function InputPassword({platzhalter}) {
 
 const PasswordInputfield = styled.input`
@@ -20,6 +21,12 @@ const PasswordInputfield = styled.input`
 
         return (
             <PasswordInputfield className="Inputfield" placeholder={platzhalter} type="password"></PasswordInputfield>
+=======
+function InputPassword({handleChange}) {
+
+        return (
+            <input className="Inputfield" type="password" onChange={handleChange}></input>
+>>>>>>> 2f0670ac0a93f41eaac51bc6bda8582405d74da1
         );
       }
 

@@ -1,27 +1,30 @@
+import React from "react"
 import logo from './logo.svg';
 import './App.css';
 import ActionButton from "./components/ActionButton.js"
 import InputField from "./components/InputField"
 import InputPassword from "./components/InputPassword"
 import Axios from "axios"
-import {useState} from "react";
 
 function App() {
 
-const [name,setName] = useState("");
+const [userName,setUserName] = React.useState("");
 
 const setNameOnChange = (e) =>  {
-  setName(e.target.value);
+  setUserName(e.target.value);
 }
 
+const setPasswordOnChange = (e) =>  {
+  setUserName(e.target.value);
+}
 
-console.log(name)
+console.log(userName)
 
 const addUser = () => {
 
   Axios.post('http://localhost:3001/create', 
   {
-    name: name
+    name: userName
   }).then(() => {console.log("success")});
 
 }
@@ -30,7 +33,7 @@ const doLogin = () => {
 
   Axios.post('http://localhost:3001/login', 
   {
-    name: name
+    name: userName
   }).then(() => {console.log("success")});
 
 }
@@ -40,7 +43,7 @@ const doLogin = () => {
       <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
         <InputField handleChange={setNameOnChange} platzhalter={"Benutzername"}></InputField>
-        <InputPassword platzhalter={"Passwort"}></InputPassword>
+        <InputPassword handleChange={setPasswordOnChange} platzhalter={"Passwort"}></InputPassword>
         <ActionButton aufschrift="Login"></ActionButton>
         <ActionButton aufschrift="Registration" currywurst={addUser}></ActionButton>
 
